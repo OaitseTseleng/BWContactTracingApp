@@ -1,3 +1,4 @@
+import 'package:bw_contact_tracing_app/pages/permit_page.dart';
 import 'package:bw_contact_tracing_app/services/location.dart';
 import 'package:flutter/material.dart';
 import 'package:bw_contact_tracing_app/pages/home_page.dart';
@@ -27,6 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     HomePage(),
     TestPage(),
     ScanPage(),
+    PermitPage(),
   ];
 
   @override
@@ -61,6 +63,10 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.code),
               title: Text('Scan'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.perm_identity),
+              title: Text('Permit'),
             ),
           ],
         ),
