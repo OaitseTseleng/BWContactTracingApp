@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bw_contact_tracing_app/widgets/startup_walkthrough.dart';
 import 'package:bw_contact_tracing_app/screens/main_screen.dart';
+import 'package:bw_contact_tracing_app/services/shared_preferences.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const id = 'welcome_screen';
@@ -89,7 +90,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0)),
                   onPressed: () => lastPage
-                      ? Navigator.pushNamed(context, MainScreen.id)
+                      ? nextScreen()
                       : controller.nextPage(
                           duration: Duration(milliseconds: 300),
                           curve: Curves.easeIn),
@@ -100,5 +101,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         ],
       ),
     );
+  }
+
+  void nextScreen() async {
+    await SharedPrefs().updateUsage();
+    Navigator.pushNamed(context, MainScreen.id);
   }
 }
