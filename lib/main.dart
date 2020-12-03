@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bw_contact_tracing_app/screens/loading_screen.dart';
+import 'package:bw_contact_tracing_app/screens/splash_screen.dart';
 import 'package:bw_contact_tracing_app/screens/main_screen.dart';
 import 'package:bw_contact_tracing_app/screens/welcome_screen.dart';
 
@@ -9,9 +9,9 @@ class BwApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: LoadingScreen.id,
+      initialRoute: SplashScreen.id,
       routes: {
-        LoadingScreen.id: (context) => LoadingScreen(),
+        SplashScreen.id: (context) => SplashScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         MainScreen.id: (context) => MainScreen(),
       },

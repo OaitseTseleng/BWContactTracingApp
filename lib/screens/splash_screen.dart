@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'package:bw_contact_tracing_app/screens/main_screen.dart';
 import 'package:bw_contact_tracing_app/screens/welcome_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bw_contact_tracing_app/services/shared_preferences.dart';
 
-class LoadingScreen extends StatefulWidget {
-  static const id = 'loading_screen';
+class SplashScreen extends StatefulWidget {
+  static const id = 'splash_screen';
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(Duration(seconds: 3), () => loadStartupData());
@@ -29,18 +30,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(color: Colors.blue),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
+      body: Container(
+        color: Colors.blue,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -66,24 +65,24 @@ class _LoadingScreenState extends State<LoadingScreen> {
                     ],
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(
-                      backgroundColor: Colors.white,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20.0),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircularProgressIndicator(
+                        backgroundColor: Colors.white,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.0),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

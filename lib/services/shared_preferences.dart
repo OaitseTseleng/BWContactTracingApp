@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
-  Future<bool> updateUsage() async {
+  Future<void> updateUsage() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('first_time', false);
   }

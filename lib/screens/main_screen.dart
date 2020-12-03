@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.blue,
           primaryTextTheme: TextTheme(
             title: TextStyle(color: Colors.white),
           )),
@@ -45,6 +45,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         body: _pageOptions[_selectedTab],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.blue,
           currentIndex: _selectedTab,
           onTap: (int index) {
             setState(() {
@@ -53,18 +54,22 @@ class _MainScreenState extends State<MainScreen> {
           },
           items: [
             BottomNavigationBarItem(
+              backgroundColor: Colors.blue,
               icon: Icon(Icons.home),
               title: Text('Home'),
             ),
             BottomNavigationBarItem(
+              backgroundColor: Colors.blue,
               icon: Icon(Icons.message),
               title: Text('Test'),
             ),
             BottomNavigationBarItem(
+              backgroundColor: Colors.blue,
               icon: Icon(Icons.code),
               title: Text('Scan'),
             ),
             BottomNavigationBarItem(
+              backgroundColor: Colors.blue,
               icon: Icon(Icons.perm_identity),
               title: Text('Permit'),
             ),
